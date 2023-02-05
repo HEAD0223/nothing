@@ -8,12 +8,12 @@
 </head>
 <body>
   <div id="smart-button-container">
-    <div style="text-align: center;"><label for="description"> </label><input type="text" name="descriptionInput" id="description" maxlength="127" value=""><script>const urlParams = new URLSearchParams(window.location.search); const description = urlParams.get('description'); document.getElementById("description").value = description;</script></div>
-      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
-    <div style="text-align: center;"><label for="amount"> </label><input name="amountInput" type="number" id="amount" value="" ><script>const amount = urlParams.get('amount'); document.getElementById("amount").value = amount;</script><span> USD</span></div>
-      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
+    <div style="text-align: center; display: none;"><label for="description"> </label><input type="text" name="descriptionInput" id="description" maxlength="127" value=""><script>const urlParams = new URLSearchParams(window.location.search); const description = urlParams.get('description'); document.getElementById("description").value = description;</script></div>
+      <p id="descriptionError" style="display: none; color:red; text-align: center;">Please enter a description</p>
+    <div style="text-align: center; display: none;"><label for="amount"> </label><input name="amountInput" type="number" id="amount" value="" ><script>const amount = urlParams.get('amount'); document.getElementById("amount").value = amount;</script><span> USD</span></div>
+      <p id="priceLabelError" style="display: none; color:red; text-align: center;">Please enter a price</p>
     <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
-      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+      <p id="invoiceidError" style="display: none; color:red; text-align: center;">Please enter an Invoice ID</p>
     <div style="text-align: center;" id="paypal-button-container"></div>
   </div>
   <script src="https://www.paypal.com/sdk/js?client-id=AQIMOyoRr75rPbtu37LCaHRa38Rj7rMqe3JlWo4_AJAv55k048WSbE0OHQPXZG6kyeE7LnXQx6x0DY8D&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
