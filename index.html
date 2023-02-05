@@ -27,6 +27,8 @@
     var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
     var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
 
+    const bot_username = urlParams.get('bot');
+
     var elArr = [description, amount];
 
     if (invoiceidDiv.firstChild.innerHTML.length > 1) {
@@ -114,12 +116,13 @@
           element.innerHTML = '<h3>Thank you for your payment!</h3>';
 
           // Or go to another URL:  actions.redirect('thank_you.html');
-          
+          actions.redirect(`https://t.me/${bot_username}?success==true`);
         });
       },
 
       onError: function (err) {
         console.log(err);
+        actions.redirect(`https://t.me/${bot_username}?error==true`);
       }
     }).render('#paypal-button-container');
   }
