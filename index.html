@@ -50,7 +50,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const bot_username = urlParams.get('bot');
             const payment_id = urlParams.get('payment_id');
-            window.location.replace(`https://t.me/${bot_username}?start=payment_success&payment_id=${payment_id}`);
+            window.location.replace(`https://t.me/${bot_username}?start=payment_success-buy_amount=${amount}-payment_id=${payment_id}`);
           });
         },
 
@@ -59,7 +59,7 @@
           const urlParams = new URLSearchParams(window.location.search);
           const bot_username = urlParams.get('bot');
           const payment_id = urlParams.get('payment_id');
-          window.location.replace(`https://t.me/${bot_username}?start=payment_error&payment_id=${payment_id}`);
+          window.location.replace(`https://t.me/${bot_username}?start=payment_success-buy_amount=${amount}-payment_id=${payment_id}`);
         }
       }).render('#paypal-button-container');
     }
