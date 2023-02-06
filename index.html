@@ -12,7 +12,7 @@
         <div id="paypal-button-container"></div>
       </div>
     </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=Af86oh67wBWBu03Q08NNfFV6r3lsueBzbgY1wULiyvpjSRGEsghJoBj5DukFV2B-gZNG_HZAPQbdObxJ&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
     function initPayPalButton() {
       paypal.Buttons({
@@ -25,8 +25,13 @@
         },
 
         createOrder: function(data, actions) {
+          const urlParams = new URLSearchParams(window.location.search);
+          const price    = urlParams.get('price');
+          const amount  = urlParams.get('amount');
+          var value       = price * amount
+
           return actions.order.create({
-            purchase_units: [{"amount":{"currency_code":"USD","value":20}}]
+            purchase_units: [{"amount":{"currency_code":"USD","value":value}}]
           });
         },
 
@@ -42,12 +47,17 @@
             element.innerHTML = '<h3>Thank you for your payment!</h3>';
 
             // Or go to another URL:  actions.redirect('thank_you.html');
-            
+            const urlParams = new URLSearchParams(window.location.search);
+            const bot_username = urlParams.get('bot');
+            window.location.replace(`https://t.me/${bot_username}?success==true`);
           });
         },
 
         onError: function(err) {
           console.log(err);
+          const urlParams = new URLSearchParams(window.location.search);
+          const bot_username = urlParams.get('bot');
+          window.location.replace(`https://t.me/${bot_username}?error==true`);
         }
       }).render('#paypal-button-container');
     }
