@@ -1,11 +1,10 @@
 #smart-button-container {
 	height: 90vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-#paypal-button-container {
+.paypal-buttons {
 	width: 40%;
 }
