@@ -51,11 +51,7 @@
             const bot_username = urlParams.get('bot');
             const payment_id = urlParams.get('payment_id');
             const amount  = urlParams.get('amount');
-            
-            const crypto = require('crypto-js');
-            const encrypted_payment = crypto.SHA256(payment_id).toString();
-            
-            window.location.replace(`https://t.me/${bot_username}?start=payment_success-buy_amount=${amount}-payment_id=${encrypted_payment}`);
+            window.location.replace(`https://t.me/${bot_username}?start=payment_success-buy_amount=${amount}-payment_id=${payment_id}`);
           });
         },
 
